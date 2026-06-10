@@ -1,0 +1,24 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/********** Custom Styles **********/
+
+body {
+  font-family: "Plus Jakarta Sans", sans-serif;
+}
+
+/* index.css ya App.css ke top par */
+html,
+body,
+#root {
+  height: 100%;
+  margin: 0;
+  padding: 0;
+  overflow-x: hidden; /* Side scroll rokne ke liye */
+}
+
+#root {
+  display: flex;
+  flex-direction: column;
+}
