@@ -14,16 +14,15 @@ const DisplayTable = () => {
     }
   }, []);
 
-  // edit functionality: remove the item from localStorage
+  // edit functionality: send the item to Manager without removing it yet
   const editPassword = (id) => {
     const itemToEdit = passwordArray.find((item) => item.id === id);
 
-    // clear the old data from localStorage
-    const updatedArray = passwordArray.filter((item) => item.id !== id);
-    setPasswordArray(updatedArray);
-    localStorage.setItem("passwords", JSON.stringify(updatedArray));
+    if (!itemToEdit) {
+      toast.error("Unable to edit item: not found.");
+      return;
+    }
 
-    // send the data to manager page for editing
     navigate("/", { state: { editItem: itemToEdit } });
     toast.success("Ready to edit! Manager page check karein.");
   };
